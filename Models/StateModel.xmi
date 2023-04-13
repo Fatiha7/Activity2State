@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Statemachine:StateMachine xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Statemachine="www.Statemachine.com" xsi:schemaLocation="www.Statemachine.com ../MetaModels/Statemetamodel.ecore">
+  <declarations xsi:type="Statemachine:Transition" source="//@declarations.25" target="//@declarations.26" name="0"/>
+  <declarations xsi:type="Statemachine:Transition" source="//@declarations.26" target="//@declarations.27" name="1"/>
+  <declarations xsi:type="Statemachine:Transition" source="//@declarations.27" target="//@declarations.28" name="3"/>
+  <declarations xsi:type="Statemachine:Transition" source="//@declarations.28" target="//@declarations.29" name="5"/>
+  <declarations xsi:type="Statemachine:Transition" source="//@declarations.29" target="//@declarations.26" name="6"/>
+  <declarations xsi:type="Statemachine:Transition" source="//@declarations.29" target="//@declarations.30" name="7"/>
+  <declarations xsi:type="Statemachine:Transition" source="//@declarations.30" target="//@declarations.31" name="9"/>
+  <declarations xsi:type="Statemachine:Transition" source="//@declarations.31" target="//@declarations.26" name="10"/>
+  <declarations xsi:type="Statemachine:Transition" source="//@declarations.31" target="//@declarations.32" name="11"/>
+  <declarations xsi:type="Statemachine:Transition" source="//@declarations.32" target="//@declarations.33" name="12"/>
+  <declarations xsi:type="Statemachine:Transition" source="//@declarations.33" target="//@declarations.34" name="14"/>
+  <declarations xsi:type="Statemachine:Transition" source="//@declarations.34" target="//@declarations.32" name="15"/>
+  <declarations xsi:type="Statemachine:Transition" source="//@declarations.31" target="//@declarations.35" name="16"/>
+  <declarations xsi:type="Statemachine:Transition" source="//@declarations.35" target="//@declarations.36" name="17"/>
+  <declarations xsi:type="Statemachine:Transition" source="//@declarations.36" target="//@declarations.37" name="19"/>
+  <declarations xsi:type="Statemachine:Transition" source="//@declarations.37" target="//@declarations.35" name="20"/>
+  <declarations xsi:type="Statemachine:Transition" source="//@declarations.37" target="//@declarations.32" name="21"/>
+  <declarations xsi:type="Statemachine:Transition" source="//@declarations.34" target="//@declarations.35" name="22"/>
+  <declarations xsi:type="Statemachine:Transition" source="//@declarations.31" target="//@declarations.38" name="23"/>
+  <declarations xsi:type="Statemachine:Transition" source="//@declarations.38" target="//@declarations.26" name="24"/>
+  <declarations xsi:type="Statemachine:Transition" source="//@declarations.34" target="//@declarations.38" name="25"/>
+  <declarations xsi:type="Statemachine:Transition" source="//@declarations.37" target="//@declarations.38" name="26"/>
+  <declarations xsi:type="Statemachine:Transition" source="//@declarations.38" target="//@declarations.39" name="27"/>
+  <declarations xsi:type="Statemachine:Transition" source="//@declarations.39" target="//@declarations.40" name="29"/>
+  <declarations xsi:type="Statemachine:Transition" source="//@declarations.40" target="//@declarations.41" name="31"/>
+  <declarations xsi:type="Statemachine:InitialState" name="Initial Node"/>
+  <declarations xsi:type="Statemachine:Jonction" name="Merge Node 1"/>
+  <declarations xsi:type="Statemachine:NormalState" name="catalog presented"/>
+  <declarations xsi:type="Statemachine:NormalState" name="product designed"/>
+  <declarations xsi:type="Statemachine:DecisionState" name="Decision Node 1"/>
+  <declarations xsi:type="Statemachine:NormalState" name="product quantity put in cart"/>
+  <declarations xsi:type="Statemachine:DecisionState" name="Decision Node 2"/>
+  <declarations xsi:type="Statemachine:Jonction" name="Merge Node 2"/>
+  <declarations xsi:type="Statemachine:NormalState" name="produced quantity changed"/>
+  <declarations xsi:type="Statemachine:DecisionState" name="Decision Node 3"/>
+  <declarations xsi:type="Statemachine:Jonction" name="Merge Node 3"/>
+  <declarations xsi:type="Statemachine:NormalState" name="produced quantity Eliminated"/>
+  <declarations xsi:type="Statemachine:DecisionState" name="Decision Node 4"/>
+  <declarations xsi:type="Statemachine:Jonction"/>
+  <declarations xsi:type="Statemachine:NormalState" name="cart  filled"/>
+  <declarations xsi:type="Statemachine:NormalState" name="order started"/>
+  <declarations xsi:type="Statemachine:FinalState" name="Final Node"/>
+</Statemachine:StateMachine>

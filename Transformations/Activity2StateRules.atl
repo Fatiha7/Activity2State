@@ -1,0 +1,101 @@
+-- @path MMactivity=/Activity2State/MetaModels/Activitymetamodel.ecore
+-- @path MMstatemachine=/Activity2State/MetaModels/Statemetamodel.ecore
+
+module Activity2StateRules;
+create OUT : MMstatemachine from IN : MMactivity;
+------------------------------ "helper 1" -----------------------------------
+-- b- "helper" which tests if the "control flow" is transformable
+helper context MMactivity!ControlFlow def : isTransformableSequenceFlow() : Boolean = 
+if self.transformable.oclIsUndefined() then
+ true
+else
+ false
+endif; 
+------------------------------ "helper 2" -----------------------------------
+helper context MMactivity!ControlFlow def : source() : String = 
+	if not self.source.oclIsUndefined() then 
+self.source
+else
+	#null
+	endif;	
+------------------------------ "helper 3" -----------------------------------
+helper context MMactivity!ControlFlow def : target() : String = 
+if not self.target.oclIsUndefined() then 
+if self.gateway.oclIsUndefined() then
+ self.target 
+ else
+ 	self.gateway
+endif
+else
+	#null
+	endif;
+rule R6 {
+	from
+		act :MMactivity!Activity
+	to 
+		stm :MMstatemachine!StateMachine(
+		declarations <- act.edge,
+		declarations <- act.node)}
+rule R7 {
+	from
+		dto : MMactivity!ObjectNode 
+	to 
+		nrstt: MMstatemachine!NormalState (
+		name <- dto.name +' '+ dto.state ) }
+rule R8 {
+	from
+		exl : MMactivity!DecisionNode 
+	to 
+		dcs : MMstatemachine!DecisionState (
+		name <- exl.name )}
+rule R9 {
+	from 
+		exlj : MMactivity!MergeNode 
+	to 
+		jct : MMstatemachine!Jonction (
+		name <- exlj.name )}
+rule R10 {
+	from
+		frkp : MMactivity!ForkNode
+	to 
+		frks : MMstatemachine!ForkState (
+ 		name <- frkp.name )}
+rule R11 {
+	from
+		jnp : MMactivity!JoinNode 
+	to 
+		jns : MMstatemachine!JointState (
+		name <- jnp.name) }
+rule R12 {
+	from
+		prll : MMactivity!ForkAndJoinNode 
+	to 
+		frkjns : MMstatemachine!ForkandJointState (
+		name <-prll.name) }
+rule R13 {
+	from
+		exlsv : MMactivity!DecisionAndMregeNode 
+	to 
+		jct : MMstatemachine!Jonction (
+		name <- exlsv.name)}
+rule R14 {
+	from
+		strtevnt : MMactivity!InitialNode 
+	to 
+		 intstt: MMstatemachine!InitialState (
+		name <- strtevnt.name)}
+rule R15 {
+	from
+		ende : MMactivity!FinalNode 
+	to 
+		fnls : MMstatemachine!FinalState (
+		name <- ende.name)}
+rule R16 {
+	from
+		sqcf : MMactivity!ControlFlow 
+	 	(sqcf.isTransformableSequenceFlow()) 
+	to 
+		trst : MMstatemachine!Transition(
+		name <- sqcf.name, 
+		source <- sqcf.source(), 
+		target <- sqcf.target() ) }
